@@ -1,3 +1,45 @@
-.row{
-    background-color:black;
+.form-floating {
+    color: #ffffff;
+    background-color:#3d3d3d
 }
+
+h1 {
+    color: #ffffff
+}
+
+.form-control {
+    background-color:#3d3d3d
+}
+
+.form-label {
+    background-color: #3d3d3d
+}
+
+button {
+    background-image: linear-gradient(to right, #ff824a, #ffb238);
+}
+
+input {
+    border-color: #ca8541;
+}
+
+#forgot-password {
+    color: #ffa64d;
+}
+a {
+    color: #ffffff;
+}
+
+.noAcc {
+    color: #898989;
+}
+#content {
+    position: relative;
+}
+
+    #content img {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        margin-top:0px;
+    }

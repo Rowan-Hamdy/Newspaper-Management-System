@@ -7,6 +7,11 @@
 <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
 <h1>@ViewData["Title"]</h1>
 <h1>Neureveal's Newspaper</h1>
+<div id="content">
+
+<img src="~/images/m.jpeg"/>
+
+</div>
 <div class="row">
     <div class="col-md-4">
         <section>
@@ -18,7 +23,8 @@
                 <div class="form-floating">
                     <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
                     <label asp-for="Input.Email" class="form-label"></label>
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    <span asp-validation-for="Input.Email" ></span>
+                    <span asp-validation-for="Input.Email" ></span>
                 </div>
                 <br/>
                 <br/>
@@ -39,7 +45,7 @@
                 <br/>
                 <br/>
                 <div>
-                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Sign in</button>
+                    <button id="login-submit" type="submit" class="w-100 btn btn-lg ">Sign in</button>
                 </div>
                 
                <br/> <br/> <br/>
@@ -48,8 +54,8 @@
                         <a id="forgot-password" asp-page="./ForgotPassword">forgot your password?</a>
                     </p>
                     <p>
-                        <label>have no account?</label>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Sign up</a>
+                        <label class="noAcc">have no account?</label>
+                        <a  asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Sign up</a>
                     </p>
                     @*<p>
                         <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>

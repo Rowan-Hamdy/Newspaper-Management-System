@@ -1,19 +1,14 @@
 .form-floating {
-    color: #ffffff;
-    background-color:#3d3d3d
+    color: #3d3d3d;
+   
 }
 
 h1 {
     color: #ffffff
 }
 
-.form-control {
-    background-color:#3d3d3d
-}
 
-.form-label {
-    background-color: #3d3d3d
-}
+
 
 button {
     background-image: linear-gradient(to right, #ff824a, #ffb238);
@@ -38,8 +33,8 @@ a {
 }
 
     #content img {
-        position: absolute;
-        top: 0px;
+        position: fixed;
+        top: 57px;
         right: 0px;
-        margin-top:0px;
+        
     }

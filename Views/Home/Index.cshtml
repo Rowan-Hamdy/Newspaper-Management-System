@@ -1,0 +1,67 @@
+﻿@*@model IEnumerable<NewspaperCMS.Models.article>*@
+@model ArticleSearchViewModel
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+@if(Model.articles.Count()>0){
+    <form>
+        @*<input asp-for=searchtext/>*@
+        @Html.DropDownListFor(a=>a.selectedArticle,Model.articleSelectList,"-- Please Select --", 
+          new { htmlAttributes = new { @class = "form-control" } })
+        
+        <input type="submit" value="Search"/>
+
+    </form>
+ 
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                Date
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Content
+            </th>
+            <th>
+                Writer Name
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.articles) {
+            if (item.status == 1)
+            {
+                <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.article_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.writer_id)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> 
+            </td>
+                </tr>
+            }
+
+
+}
+    </tbody>
+</table>
+}

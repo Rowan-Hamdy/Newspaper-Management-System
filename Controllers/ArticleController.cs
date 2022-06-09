@@ -99,6 +99,9 @@ namespace NewspaperCMS.Controllers
         // GET: Article/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            var userId = _context.Users.Where(user => user.UserName == User.Identity.Name).FirstOrDefault();
+            var role = _context.UserRoles.Where(role => role.UserId == userId.Id).FirstOrDefault();
+            ViewBag.Role = role.RoleId;
             if (id == null || _context.article == null)
             {
                 return NotFound();
@@ -119,9 +122,7 @@ namespace NewspaperCMS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("id,status,article_date,title,content,writer_id")] article article)
         {
-            var userId = _context.Users.Where(user => user.UserName == User.Identity.Name).FirstOrDefault();
-            var role = _context.UserRoles.Where(role => role.UserId == userId.Id).FirstOrDefault();
-            ViewBag.Role = role.RoleId;
+
             if (id != article.id)
             {
                 return NotFound();

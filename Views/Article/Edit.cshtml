@@ -31,10 +31,10 @@
             </div>
             <div class="form-group">
                 <label asp-for="content" class="control-label"></label>
-                <input asp-for="content" class="form-control" />
+                  <textarea asp-for="content" class="form-control"  rows="10"></textarea>
                 <span asp-validation-for="content" class="text-danger"></span>
             </div>
-            if(role=="1"){
+            @if(role=="1"){
               <div class="form-group">
                 <label asp-for="writer_id" class="control-label"></label>
                 <input asp-for="writer_id" class="form-control" />
@@ -43,14 +43,14 @@
             }
 
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-secondary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index"  class="btn btn-secondary ">Back to List</a>
 </div>
 
 @section Scripts {

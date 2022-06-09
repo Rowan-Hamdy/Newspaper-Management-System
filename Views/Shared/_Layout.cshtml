@@ -24,10 +24,11 @@
                             <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
 
                         </li>
-                         @if(User.Identity.Name=="admin@gmail.com"){
-                             <li li class="nav-item">
+                          <li li class="nav-item">
                              <a class="nav-link text-dark" asp-area="" asp-controller="Article" asp-action="Index">Edit Articles</a>
-                             </li>
+                          </li>
+                         @if(User.Identity.Name=="admin@gmail.com"){
+
                              <li li class="nav-item">
 
                             <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Edit Category</a>

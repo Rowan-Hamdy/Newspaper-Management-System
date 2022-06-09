@@ -42,12 +42,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="content" class="control-label"></label>
-                <input asp-for="content" class="form-control" />
+                <textarea asp-for="content" class="form-control"  rows="10"></textarea>
                 <span asp-validation-for="content" class="text-danger"></span>
             </div>
             @if (role == "2")
             {
-               <div class="form-group">
+               <div class="form-group" hidden>
                
                 <label asp-for="writer_id" class="control-label"></label>
                 <input asp-for="writer_id" value=@ViewBag.UserId   class="form-control"  />
@@ -73,7 +73,8 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index"  class="btn btn-secondary ">Back to List</a>
+</div>
 </div>
 
 @section Scripts {

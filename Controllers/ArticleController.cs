@@ -27,6 +27,7 @@ namespace NewspaperCMS.Controllers
             var userId = _context.Users.Where(user => user.UserName == User.Identity.Name).FirstOrDefault();
             var role = _context.UserRoles.Where(role => role.UserId == userId.Id).FirstOrDefault();
             
+            
             if (role.RoleId == "1")
             {
 
@@ -34,8 +35,8 @@ namespace NewspaperCMS.Controllers
               View(await _context.article.ToListAsync()) :
               Problem("Entity set 'ApplicationDbContext.category'  is null.");
             }
-            
 
+            ViewBag.writerName = userId.UserName;
             var articles = _context.article.Where(a=>a.writer_id == userId.Id).ToListAsync();
             return _context.article != null ?
                           //View(await _context.article.ToListAsync()) :
@@ -67,7 +68,8 @@ namespace NewspaperCMS.Controllers
         {
             var userId = _context.Users.Where(user => user.UserName == User.Identity.Name).FirstOrDefault();
             var role = _context.UserRoles.Where(role => role.UserId == userId.Id).FirstOrDefault();
-            ViewBag.Message = role.RoleId;
+            ViewBag.Role = role.RoleId;
+            ViewBag.UserId = userId.Id;
 
             return View();
         }
@@ -80,8 +82,7 @@ namespace NewspaperCMS.Controllers
         public async Task<IActionResult> Create([Bind("id,status,article_date,title,content,writer_id")] article article)
         {
             var userId = _context.Users.Where(user => user.UserName == User.Identity.Name).FirstOrDefault();
-            ViewBag.UserId = userId.Id;
-
+            ViewBag.writerName = userId.UserName;
 
             if (ModelState.IsValid)
             {
@@ -118,6 +119,9 @@ namespace NewspaperCMS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("id,status,article_date,title,content,writer_id")] article article)
         {
+            var userId = _context.Users.Where(user => user.UserName == User.Identity.Name).FirstOrDefault();
+            var role = _context.UserRoles.Where(role => role.UserId == userId.Id).FirstOrDefault();
+            ViewBag.Role = role.RoleId;
             if (id != article.id)
             {
                 return NotFound();

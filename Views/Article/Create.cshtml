@@ -2,8 +2,8 @@
 
 @{
     ViewData["Title"] = "Create";
-    string s = @ViewBag.UserId;
-    string role = @ViewBag.Message;
+   
+    string role = @ViewBag.Role;
 }
 
 <h1>Create</h1>
@@ -47,10 +47,10 @@
             </div>
             @if (role == "2")
             {
-               <div class="form-group" hidden>
+               <div class="form-group">
                
                 <label asp-for="writer_id" class="control-label"></label>
-                <input asp-for="writer_id" value= ViewBag.UserId   class="form-control"  />
+                <input asp-for="writer_id" value=@ViewBag.UserId   class="form-control"  />
                 <span asp-validation-for="writer_id" class="text-danger"></span>
 
               </div>

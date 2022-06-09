@@ -1,26 +1,35 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 
 }
 
 @media (min-width: 768px) {
     html {
         font-size: 16px;
-        color: #ffffff
+      
     }
 }
 
 html {
     position: relative;
     min-height: 100%;
-    color: #ffffff
+   
 }
 
 body {
     margin-bottom: 60px;
     background-color: #1d1d1d;
+    color:white
+  
 }
 
-input {
-    background-color: #3d3d3d
+table {
+    background-color: white;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px 8px #888888;
+}
+
+button{
+    background-image: linear-gradient(to right, #ff824a, #ffb238);
 }

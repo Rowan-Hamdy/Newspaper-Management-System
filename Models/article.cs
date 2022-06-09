@@ -19,8 +19,11 @@ namespace NewspaperCMS.Models
         [Key]
         public int id { get; set; }
         public int status { get; set; }
-        [Column(TypeName = "date")]
+        //[DataType(DataType.DateTime, ErrorMessage = "Datatype must be datetime")]
+        //[Column(TypeName = "date")]
+        [DataType(DataType.Date)]
         public DateTime article_date { get; set; }
+
         [Required]
         [StringLength(120)]
         [Unicode(false)]

@@ -13,11 +13,11 @@
         @Html.DropDownListFor(a=>a.selectedArticle,Model.articleSelectList,"-- Please Select --", 
           new { htmlAttributes = new { @class = "form-control" } })
         
-        <input type="submit" value="Search"/>
+        <input class="btn btn-secondary"type="submit" value="Search"/>
 
     </form>
  
-
+    <br/>
 <table class="table">
     <thead>
         <tr>
@@ -28,9 +28,7 @@
             <th>
                 Title
             </th>
-            <th>
-                Content
-            </th>
+
             <th>
                 Writer Name
 
@@ -46,17 +44,13 @@
                 @Html.DisplayFor(modelItem => item.article_date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.title)
+                <a asp-action="Details" asp-route-id="@item.id">@Html.DisplayFor(modelItem => item.title)</a> 
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.content)
-            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.writer_id)
             </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> 
-            </td>
+
                 </tr>
             }
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NewspaperCMS.Data;
 using NewspaperCMS.Models;
 using System.Diagnostics;
@@ -36,9 +37,21 @@ namespace NewspaperCMS.Controllers
         }
 
 
-        public IActionResult Privacy()
+        public async Task<IActionResult> Details(int? id)
         {
-            return View();
+            if (id == null || _context.article == null)
+            {
+                return NotFound();
+            }
+
+            var article = await _context.article
+                .FirstOrDefaultAsync(m => m.id == id);
+            if (article == null)
+            {
+                return NotFound();
+            }
+
+            return View(article);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

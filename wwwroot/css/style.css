@@ -7,10 +7,7 @@ h1 {
     color: #ffffff
 }
 
-
-
-
-button {
+button, #SignIn {
     background-image: linear-gradient(to right, #ff824a, #ffb238);
 }
 
